@@ -7,8 +7,10 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const { data: session } = useSession();
+  console.log(session);
 
   const [providers, setProviders] = useState(null);
+  console.log(providers);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
@@ -55,6 +57,7 @@ const Nav = () => {
           </div>
         ) : (
           <>
+            {console.log(providers && Object.values(providers))}
             {providers &&
               Object.values(providers).map((provider) => (
                 <button
